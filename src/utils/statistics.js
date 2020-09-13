@@ -35,10 +35,12 @@ export const countCompletedTaskInDateRange = (tasks, dateFrom, dateTo) => {
 
     // С помощью moment.js проверям, сколько задач с дедлайном
     // попадают в диапазон дат
+    const dueDate = moment(task.dueDate);
+
     if (
-      moment(task.dueDate).isSame(dateFrom) ||
-      moment(task.dueDate).isBetween(dateFrom, dateTo) ||
-      moment(task.dueDate).isSame(dateTo)
+      dueDate.isSame(dateFrom) ||
+      dueDate.isBetween(dateFrom, dateTo) ||
+      dueDate.isSame(dateTo)
     ) {
       return counter + 1;
     }

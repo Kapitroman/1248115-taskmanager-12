@@ -27,7 +27,7 @@ const boardPresenter = new BoardPresenter(siteMainElement, tasksModel, filterMod
 const filterPresenter = new FilterPresenter(siteMainElement, filterModel, tasksModel);
 
 const handleTaskNewFormClose = () => {
-  siteMenuComponent.getElement().querySelector(`[value=${MenuItem.TASKS}]`).disabled = false;
+  siteMenuComponent.disable(false);
   siteMenuComponent.setMenuItem(MenuItem.TASKS);
 };
 
@@ -41,7 +41,7 @@ const handleSiteMenuClick = (menuItem) => {
       filterModel.setFilter(UpdateType.MAJOR, FilterType.ALL);
       boardPresenter.init();
       boardPresenter.createTask(handleTaskNewFormClose);
-      siteMenuComponent.getElement().querySelector(`[value=${MenuItem.TASKS}]`).disabled = true;
+      siteMenuComponent.disable(true);
       break;
     case MenuItem.TASKS:
       boardPresenter.init();

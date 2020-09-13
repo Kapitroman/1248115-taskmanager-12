@@ -65,4 +65,9 @@ export default class SiteMenu extends AbstractView {
       item.checked = true;
     }
   }
+
+  disable(booleanValue) {
+    const itemTask = this.getElement().querySelector(`[value=${MenuItem.TASKS}]`);
+    itemTask.disabled = booleanValue;
+  }
 }
